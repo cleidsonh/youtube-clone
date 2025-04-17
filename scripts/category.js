@@ -6,6 +6,7 @@ function showVideos(event) {
     const button = event.target;
     const category = button.getAttribute('data-category').toLowerCase();
 
+    activeButton(button)
     filterVideos(category, videos);
 }
 
@@ -19,4 +20,9 @@ function filterVideos(category, videos) {
             video.style.display = 'none';
         }
     }
+}
+
+function activeButton(button) {
+    filterButtons.forEach((b) => b.classList.remove('active'))
+    button.classList.add('active')
 }
